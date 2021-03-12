@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Design/1.0.0": {
+        "dependencies": {
+          "WindowsApp1": "1.0.0"
+        },
+        "runtime": {
+          "Design.dll": {}
+        }
+      },
+      "WindowsApp1/1.0.0": {
+        "runtime": {
+          "WindowsApp1.exe": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Design/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WindowsApp1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
