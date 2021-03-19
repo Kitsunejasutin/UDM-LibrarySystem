@@ -1,0 +1,10 @@
+1. Move the database into your xampp folder usually in C:\xampp
+copy the database1 into this path (C:\xampp\mysql\data)
+
+2. Open the Main.sln using Visual Studio
+
+3. Start the Program
+
+Please do Issues if you have any inquiries.
+
+Thank you!
