@@ -37,6 +37,38 @@ Public Class SignUp
         End If
     End Sub
 
+    Private Sub txtCont2_Enter(sender As Object, e As EventArgs) Handles txtCont2.Enter
+
+        'clear the textbox when the textbox gets clicked
+        Dim cont2 As String = txtCont2.Text
+        'check if the username is empty
+        'check if the textbox contains the default value "username"
+        If cont2.Trim().ToLower() = "09xx-xxxx-xxx" Or cont2.Trim() = "" Then
+
+            'clear the textbox
+            txtCont2.Text = ""
+            'change the textbox color
+            txtCont2.ForeColor = Color.Black
+
+        End If
+    End Sub
+
+    Private Sub txtCont2_Leave(sender As Object, e As EventArgs) Handles txtCont2.Leave
+
+        'when the user leave the textbox
+        Dim cont2 As String = txtCont2.Text
+        'check if the username is empty
+        'check if the textbox contains the default value "username"
+        If cont2.Trim().ToLower() = "09xx-xxxx-xxx" Or cont2.Trim() = "" Then
+
+            'set the value back to username
+            txtCont2.Text = "09xx-xxxx-xxx"
+            'change the textbox color
+            txtCont2.ForeColor = Color.LightGray
+
+        End If
+    End Sub
+
     Private Sub txtEmail_Leave(sender As Object, e As EventArgs) Handles txtEmail.Leave
 
         'when the user leave the textbox
@@ -79,7 +111,8 @@ Public Class SignUp
         Dim fname As String = txtFName.Text
         Dim mname As String = txtMiddle.Text
         Dim age As String = txtAge.Text
-        Dim studentid As String = txtID.Text
+        Dim studentid As String = txtID2.Text
+        Dim idNo As String = txtID.Text
         Dim add As String = txtAdd.Text
         Dim cont As String = txtCont.Text
         Dim email As String = txtEmail.Text
@@ -93,7 +126,7 @@ Public Class SignUp
 
         If sname.Trim() = "" Or fname.Trim() = "" Or mname.Trim() = "" Or age.ToString() = "" Or studentid.Trim() = "" Or
             add.Trim() = "" Or cont.Trim() = "" Or email.Trim() = "" Or emername.Trim() = "" Or emeradd.Trim() = "" Or
-            emercont.ToString() = "" Or emerrelate.Trim() = "" Or password.Trim() = "" Then
+            emercont.ToString() = "" Or emerrelate.Trim() = "" Or password.Trim() = "" Or idNo.Trim() = "" Then
 
             MsgBox("Empty Fields")
 
@@ -108,8 +141,8 @@ Public Class SignUp
             ' add new user
             Dim conn As New Connection()
             Dim command As New MySqlCommand("INSERT INTO `students`(`Studentid`, `Password`, `Surname`, `FName`, 
-            `MName`, `Age`, `Address`, `Contact`, `Email`, `EmerName`, `EmerAdd`, `EmerRelate`, `DOB`, `Emercont`,`gender` ) VALUES 
-            (@studid,@password,@sname,@fname,@mname,@age,@add,@cont,@email,@emername,@emeradd,@emerrelate,@DOB, @emercont, @gender)", conn.getConnection)
+            `MName`, `Age`, `Address`, `Contact`, `Email`, `EmerName`, `EmerAdd`, `EmerRelate`, `DOB`, `Emercont`,`gender`, `IDNo` ) VALUES 
+            (@studid,@password,@sname,@fname,@mname,@age,@add,@cont,@email,@emername,@emeradd,@emerrelate,@DOB, @emercont, @gender, @idno)", conn.getConnection)
 
             command.Parameters.Add("@studid", MySqlDbType.VarChar).Value = studentid.Trim()
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Trim()
@@ -126,6 +159,7 @@ Public Class SignUp
             command.Parameters.Add("@emerrelate", MySqlDbType.VarChar).Value = emerrelate.Trim()
             command.Parameters.Add("@DOB", MySqlDbType.VarChar).Value = DOB.Value.ToString()
             command.Parameters.Add("@gender", MySqlDbType.VarChar).Value = gender
+            command.Parameters.Add("@idno", MySqlDbType.VarChar).Value = idNo.Trim()
 
 
             conn.openConnection()

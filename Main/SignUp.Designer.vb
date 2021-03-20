@@ -393,6 +393,7 @@ Partial Class SignUp
         Me.txtCont2.Name = "txtCont2"
         Me.txtCont2.Size = New System.Drawing.Size(257, 22)
         Me.txtCont2.TabIndex = 34
+        Me.txtCont2.Text = "09xx-xxxx-xxx"
         '
         'Label16
         '
@@ -444,9 +445,9 @@ Partial Class SignUp
         Me.txtPassword.Location = New System.Drawing.Point(578, 583)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(347, 22)
         Me.txtPassword.TabIndex = 41
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'Label19
         '
