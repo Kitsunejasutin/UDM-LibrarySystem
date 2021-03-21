@@ -13,6 +13,21 @@ Public Class forgot
         Dim username As String = txtID.Text
         Dim npass As String = txtNPass.Text
         Dim contpass As String = txtConfirm.Text
+        Dim conn As New Connection()
+        Dim command As New MySqlCommand
+        Dim rd As MySqlDataReader
+        Dim command1 As New MySqlCommand
+
+
+
+        command1.CommandText = "SELECT * FROM `students` WHERE `Studentid`= @studid "
+        command1.Connection = conn.getConnection
+        command.CommandText = "UPDATE `students` SET `Password`= @password WHERE `Studentid`= @studid"
+        command.Connection = conn.getConnection
+
+        command1.Parameters.Add("@studid", MySqlDbType.VarChar).Value = username.Trim()
+        command.Parameters.Add("@studid", MySqlDbType.VarChar).Value = username.Trim()
+        command.Parameters.Add("@password", MySqlDbType.VarChar).Value = npass.Trim()
 
         If npass.Trim() = "" Or username.Trim() = "" Then
 
@@ -23,23 +38,21 @@ Public Class forgot
             MsgBox("Password not the same")
 
         Else
-            Dim conn As New Connection()
-
             conn.openConnection()
+            rd = command1.ExecuteReader()
 
-            Dim command As New MySqlCommand("UPDATE `students` SET `Password`= @password WHERE `Studentid`= @studid", conn.getConnection)
-
-            command.Parameters.Add("@studid", MySqlDbType.VarChar).Value = txtID.Text
-            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtNPass.Text
-
-            If command.ExecuteNonQuery() = 1 Then
-                    MsgBox("Password Updated")
-                    conn.closeConnection()
+            With rd
+                If .Read Then
+                    If StrComp(username, rd.GetValue(1), 0) = 0 Then
+                        MessageBox.Show("Password Changed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Incorrect Username")
+                    End If
                 Else
-                    MsgBox("Username not found!")
-                    conn.closeConnection()
+                    MessageBox.Show("Incorrect Username or Password")
                 End If
-            End If
+            End With
+        End If
 
     End Sub
 

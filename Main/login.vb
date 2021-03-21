@@ -100,6 +100,7 @@ Public Class login
         Dim adapter As New MySqlDataAdapter
         Dim table As New DataTable
         Dim command As New MySqlCommand
+        Dim rd As MySqlDataReader
         Dim studentid As String = txtID.Text
         Dim password As String = txtPass.Text
 
@@ -117,17 +118,20 @@ Public Class login
             MsgBox("Enter Password")
 
         Else
+            conn.openConnection()
+            rd = command.ExecuteReader()
 
-            adapter.SelectCommand = command
-            adapter.Fill(table)
-
-            If table.Rows.Count > 0 Then
-
-                MsgBox("Welcome User")
-            Else
-                MsgBox("Student ID or Password didn't match on the database")
-
-            End If
+            With rd
+                If .Read Then
+                    If StrComp(studentid, rd.GetValue(1), 0) = 0 And StrComp(password, rd.GetValue(1), 0) Then
+                        MessageBox.Show("Welcome User!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Incorrect Username or Password")
+                    End If
+                Else
+                    MessageBox.Show("Incorrect Username or Password")
+                End If
+            End With
 
         End If
 
