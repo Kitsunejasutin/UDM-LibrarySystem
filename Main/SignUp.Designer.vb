@@ -35,7 +35,6 @@ Partial Class SignUp
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DOB = New System.Windows.Forms.DateTimePicker()
-        Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtCont = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -67,6 +66,7 @@ Partial Class SignUp
         Me.rbtnMale = New System.Windows.Forms.RadioButton()
         Me.rbtnFemale = New System.Windows.Forms.RadioButton()
         Me.cbCourse = New System.Windows.Forms.ComboBox()
+        Me.cbSection = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -207,25 +207,17 @@ Partial Class SignUp
         Me.DOB.Size = New System.Drawing.Size(265, 22)
         Me.DOB.TabIndex = 14
         '
-        'txtID
-        '
-        Me.txtID.Location = New System.Drawing.Point(255, 237)
-        Me.txtID.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(257, 22)
-        Me.txtID.TabIndex = 19
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(200, 239)
+        Me.Label8.Location = New System.Drawing.Point(840, 236)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 20)
+        Me.Label8.Size = New System.Drawing.Size(70, 20)
         Me.Label8.TabIndex = 17
-        Me.Label8.Text = "ID No."
+        Me.Label8.Text = "Section:"
         '
         'txtCont
         '
@@ -489,7 +481,7 @@ Partial Class SignUp
         Me.Label21.AutoSize = True
         Me.Label21.BackColor = System.Drawing.Color.White
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(521, 239)
+        Me.Label21.Location = New System.Drawing.Point(200, 237)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(68, 20)
         Me.Label21.TabIndex = 45
@@ -542,10 +534,18 @@ Partial Class SignUp
         '
         Me.cbCourse.FormattingEnabled = True
         Me.cbCourse.Items.AddRange(New Object() {"BS Communication Arts", "BS Math", "BS Psychology", "BA Political Science", "BS Public Administration", "BS Social Work", "BS Criminology", "BS Nursing", "BS Physical Therapy", "BS Computer Engineering", "BS Electronic Engineering", "BS Information Technology", "BS Cyber Security", "BS Data Science", "BSBS Entrepreneurship", "BSBA Economics", "BSBA Marketing Management", "BSBA Human Resources Development Management", "BS Accountancy", "BS Accounting Technology", "BSBA Supply Chain and Management", "BS Physical Education", "BSED English", "BSED Biological Science", "BSED Social Science", "BSED Mathematics ", "BSED General Science", "BTVTE Food Technology", "BTVTE Automotive", "BTVTE Computer Technology", "BTVTE Electronics Technology", "BTVTE Electrical Technology", "BTVTE Hotel and Restaurant Technology", "BTVTE Air-condition Technology ", "BTVTE Garments Technology ", "Senior High School"})
-        Me.cbCourse.Location = New System.Drawing.Point(595, 237)
+        Me.cbCourse.Location = New System.Drawing.Point(274, 235)
         Me.cbCourse.Name = "cbCourse"
         Me.cbCourse.Size = New System.Drawing.Size(556, 24)
         Me.cbCourse.TabIndex = 49
+        '
+        'cbSection
+        '
+        Me.cbSection.FormattingEnabled = True
+        Me.cbSection.Location = New System.Drawing.Point(915, 235)
+        Me.cbSection.Name = "cbSection"
+        Me.cbSection.Size = New System.Drawing.Size(236, 24)
+        Me.cbSection.TabIndex = 50
         '
         'SignUp
         '
@@ -554,6 +554,7 @@ Partial Class SignUp
         Me.BackgroundImage = Global.Main.My.Resources.Resources._31891013_1211256329004640_988433843537051648_o
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1348, 721)
+        Me.Controls.Add(Me.cbSection)
         Me.Controls.Add(Me.cbCourse)
         Me.Controls.Add(Me.rbtnFemale)
         Me.Controls.Add(Me.rbtnMale)
@@ -584,7 +585,6 @@ Partial Class SignUp
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtCont)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.DOB)
         Me.Controls.Add(Me.txtAge)
@@ -654,4 +654,5 @@ Partial Class SignUp
     Friend WithEvents rbtnMale As RadioButton
     Friend WithEvents rbtnFemale As RadioButton
     Friend WithEvents cbCourse As ComboBox
+    Friend WithEvents cbSection As ComboBox
 End Class
