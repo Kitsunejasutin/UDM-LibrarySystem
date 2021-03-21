@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Main.exe" size="1189856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Main.exe" size="1190368">
       <assemblyIdentity name="Main" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+MlJ+ruZvDx72CMUEh09PbVtaiKpP4ytLH4EAEMfzr4=</dsig:DigestValue>
+        <dsig:DigestValue>mvy3Urg8yj/1lmbYyXoXqGZHIjnXOxugnGjruB0BTF8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
