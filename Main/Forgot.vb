@@ -10,14 +10,14 @@ Public Class forgot
 
     Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
 
-        Dim username As String = txtID.Text
-        Dim npass As String = txtNPass.Text
-        Dim contpass As String = txtConfirm.Text
+
         Dim conn As New Connection()
         Dim command As New MySqlCommand
         Dim rd As MySqlDataReader
         Dim command1 As New MySqlCommand
-
+        Dim username As String = txtID.Text
+        Dim npass As String = txtNPass.Text
+        Dim contpass As String = txtConfirm.Text
 
 
         command1.CommandText = "SELECT * FROM `students` WHERE `Studentid`= @studid "
@@ -39,19 +39,24 @@ Public Class forgot
 
         Else
             conn.openConnection()
-            rd = command1.ExecuteReader()
+            If command.ExecuteNonQuery() = 1 Then
+                rd = command1.ExecuteReader()
 
-            With rd
-                If .Read Then
-                    If StrComp(username, rd.GetValue(1), 0) = 0 Then
-                        MessageBox.Show("Password Changed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                With rd
+                    If .Read Then
+                        If StrComp(username, rd.GetValue(1), 0) = 0 Then
+                            MessageBox.Show("Password Changed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            conn.closeConnection()
+                        Else
+                            MessageBox.Show("Incorrect Username")
+                            conn.closeConnection()
+                        End If
                     Else
                         MessageBox.Show("Incorrect Username")
+                        conn.closeConnection()
                     End If
-                Else
-                    MessageBox.Show("Incorrect Username or Password")
-                End If
-            End With
+                End With
+            End If
         End If
 
     End Sub

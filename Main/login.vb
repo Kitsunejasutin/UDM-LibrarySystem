@@ -125,6 +125,7 @@ Public Class login
                 If .Read Then
                     If StrComp(studentid, rd.GetValue(1), 0) = 0 And StrComp(password, rd.GetValue(1), 0) Then
                         MessageBox.Show("Welcome User!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        conn.closeConnection()
                     Else
                         MessageBox.Show("Incorrect Username or Password")
                     End If
