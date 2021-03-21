@@ -122,6 +122,7 @@ Public Class SignUp
         Dim emerrelate As String = txtRelate.Text
         Dim password As String = txtPassword.Text
         Dim txtCon As String = txtConfirm.Text
+        Dim course As String = cbCourse.Text
 
 
         If sname.Trim() = "" Or fname.Trim() = "" Or mname.Trim() = "" Or age.ToString() = "" Or studentid.Trim() = "" Or
@@ -141,8 +142,8 @@ Public Class SignUp
             ' add new user
             Dim conn As New Connection()
             Dim command As New MySqlCommand("INSERT INTO `students`(`Studentid`, `Password`, `Surname`, `FName`, 
-            `MName`, `Age`, `Address`, `Contact`, `Email`, `EmerName`, `EmerAdd`, `EmerRelate`, `DOB`, `Emercont`,`gender`, `IDNo` ) VALUES 
-            (@studid,@password,@sname,@fname,@mname,@age,@add,@cont,@email,@emername,@emeradd,@emerrelate,@DOB, @emercont, @gender, @idno)", conn.getConnection)
+            `MName`, `Age`, `Address`, `Contact`, `Email`, `EmerName`, `EmerAdd`, `EmerRelate`, `DOB`, `Emercont`,`gender`, `IDNo`, `Course` ) VALUES 
+            (@studid,@password,@sname,@fname,@mname,@age,@add,@cont,@email,@emername,@emeradd,@emerrelate,@DOB, @emercont, @gender, @idno, @course)", conn.getConnection)
 
             command.Parameters.Add("@studid", MySqlDbType.VarChar).Value = studentid.Trim()
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Trim()
@@ -160,6 +161,7 @@ Public Class SignUp
             command.Parameters.Add("@DOB", MySqlDbType.VarChar).Value = DOB.Value.ToString()
             command.Parameters.Add("@gender", MySqlDbType.VarChar).Value = gender
             command.Parameters.Add("@idno", MySqlDbType.VarChar).Value = idNo.Trim()
+            command.Parameters.Add("@course", MySqlDbType.VarChar).Value = course.Trim()
 
 
             conn.openConnection()

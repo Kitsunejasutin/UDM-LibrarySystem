@@ -35,7 +35,6 @@ Partial Class SignUp
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DOB = New System.Windows.Forms.DateTimePicker()
-        Me.txtCourse = New System.Windows.Forms.TextBox()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtCont = New System.Windows.Forms.TextBox()
@@ -67,6 +66,7 @@ Partial Class SignUp
         Me.btnBack = New System.Windows.Forms.Button()
         Me.rbtnMale = New System.Windows.Forms.RadioButton()
         Me.rbtnFemale = New System.Windows.Forms.RadioButton()
+        Me.cbCourse = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -206,14 +206,6 @@ Partial Class SignUp
         Me.DOB.Name = "DOB"
         Me.DOB.Size = New System.Drawing.Size(265, 22)
         Me.DOB.TabIndex = 14
-        '
-        'txtCourse
-        '
-        Me.txtCourse.Location = New System.Drawing.Point(596, 237)
-        Me.txtCourse.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtCourse.Name = "txtCourse"
-        Me.txtCourse.Size = New System.Drawing.Size(555, 22)
-        Me.txtCourse.TabIndex = 20
         '
         'txtID
         '
@@ -546,6 +538,15 @@ Partial Class SignUp
         Me.rbtnFemale.Text = "Female"
         Me.rbtnFemale.UseVisualStyleBackColor = False
         '
+        'cbCourse
+        '
+        Me.cbCourse.FormattingEnabled = True
+        Me.cbCourse.Items.AddRange(New Object() {"BS Communication Arts", "BS Math", "BS Psychology", "BA Political Science", "BS Public Administration", "BS Social Work", "BS Criminology", "BS Nursing", "BS Physical Therapy", "BS Computer Engineering", "BS Electronic Engineering", "BS Information Technology", "BS Cyber Security", "BS Data Science", "BSBS Entrepreneurship", "BSBA Economics", "BSBA Marketing Management", "BSBA Human Resources Development Management", "BS Accountancy", "BS Accounting Technology", "BSBA Supply Chain and Management", "BS Physical Education", "BSED English", "BSED Biological Science", "BSED Social Science", "BSED Mathematics ", "BSED General Science", "BTVTE Food Technology", "BTVTE Automotive", "BTVTE Computer Technology", "BTVTE Electronics Technology", "BTVTE Electrical Technology", "BTVTE Hotel and Restaurant Technology", "BTVTE Air-condition Technology ", "BTVTE Garments Technology ", "Senior High School"})
+        Me.cbCourse.Location = New System.Drawing.Point(595, 237)
+        Me.cbCourse.Name = "cbCourse"
+        Me.cbCourse.Size = New System.Drawing.Size(556, 24)
+        Me.cbCourse.TabIndex = 49
+        '
         'SignUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -553,6 +554,7 @@ Partial Class SignUp
         Me.BackgroundImage = Global.Main.My.Resources.Resources._31891013_1211256329004640_988433843537051648_o
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1348, 721)
+        Me.Controls.Add(Me.cbCourse)
         Me.Controls.Add(Me.rbtnFemale)
         Me.Controls.Add(Me.rbtnMale)
         Me.Controls.Add(Me.btnBack)
@@ -582,7 +584,6 @@ Partial Class SignUp
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtCont)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.txtCourse)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.DOB)
@@ -621,7 +622,6 @@ Partial Class SignUp
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents DOB As DateTimePicker
-    Friend WithEvents txtCourse As TextBox
     Friend WithEvents txtID As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txtCont As TextBox
@@ -653,4 +653,5 @@ Partial Class SignUp
     Friend WithEvents btnBack As Button
     Friend WithEvents rbtnMale As RadioButton
     Friend WithEvents rbtnFemale As RadioButton
+    Friend WithEvents cbCourse As ComboBox
 End Class
